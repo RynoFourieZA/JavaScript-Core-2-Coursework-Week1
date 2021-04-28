@@ -16,7 +16,12 @@ Should give return the answer of 62600.
 
 **/
 
-function getBudgets(peopleArray) {}
+function getBudgets(peopleArray) {
+  console.log("The peoples budget: ", peopleArray);
+  const totalBudget = peopleArray.reduce((acc, cur) => acc + cur.budget, 0)
+  console.log("The peoples total budget: ", totalBudget);
+  return totalBudget;
+}
 
 /*
 ==================================================
