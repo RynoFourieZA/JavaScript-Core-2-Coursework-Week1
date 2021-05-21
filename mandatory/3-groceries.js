@@ -24,12 +24,15 @@ let weeklyMealPlan = {
 
 /*
 Exercise 1:
-  Loop through the weekly meal plan object to gather weekly ingredients into the weeklyGroceriesToBuy array.
-  The weeklyGroceriesToBuy array shouldn't contain any repeating items.
-  Then use console.log() to print out the list.
+Loop through the weekly meal plan object to gather weekly ingredients into the weeklyGroceriesToBuy array.
+The weeklyGroceriesToBuy array shouldn't contain any repeating items.
+Then use console.log() to print out the list.
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+Object.values(weeklyMealPlan).forEach(meal => weeklyGroceriesToBuy.push(meal).flat(1))
+// let weeklyMeal = weeklyGroceriesToBuy.flat(1).sort();
+// console.log("With Flat(): ", weeklyMeal.filter((item, index) => weeklyMeal.indexOf(item) === index));
 
 /*
 Exercise 2:
@@ -38,6 +41,11 @@ Exercise 2:
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
+
+// Object.values(weeklyMealPlan.saturday).forEach(meal => weekendGroceriesToBuy.push(meal));
+// Object.values( weeklyMealPlan.sunday).forEach(meal => weekendGroceriesToBuy.push(meal));
+// console.log(weekendGroceriesToBuy);
+
 
 /*
 Exercise 3:
@@ -56,3 +64,5 @@ let numberOfItemsPerWeek = {
   saturday: 0,
   sunday: 0,
 };
+
+// Object.values(weeklyMealPlan).forEach(meal => numberOfItemsPerWeek.length.push(meal))
