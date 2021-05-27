@@ -30,10 +30,14 @@ Then use console.log() to print out the list.
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
-Object.values(weeklyMealPlan).forEach(meal => weeklyGroceriesToBuy.push(meal).flat(1))
-// let weeklyMeal = weeklyGroceriesToBuy.flat(1).sort();
-// console.log("With Flat(): ", weeklyMeal.filter((item, index) => weeklyMeal.indexOf(item) === index));
-
+// used Object.value to return the values of the property in an array. then used flat to to to concat the subarray into the main array and remove the empty slot in the array
+// Object.values(weeklyMealPlan).flat(1).forEach((item, index, wholeArray) => { 
+//   if(wholeArray.indexOf(item) === index) {
+//    weeklyGroceriesToBuy.push(item);
+//   }
+//  })
+//  console.log("This is my weekly groceries to Buy list: ", weeklyGroceriesToBuy);
+//  console.log("This is my weekly meal plan: ", weeklyMealPlan);
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
@@ -41,11 +45,9 @@ Exercise 2:
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
-
-// Object.values(weeklyMealPlan.saturday).forEach(meal => weekendGroceriesToBuy.push(meal));
-// Object.values( weeklyMealPlan.sunday).forEach(meal => weekendGroceriesToBuy.push(meal));
-// console.log(weekendGroceriesToBuy);
-
+let weekend = Object.values(weeklyMealPlan.saturday).concat(Object.values(weeklyMealPlan.sunday))
+weekend.forEach(item => weekendGroceriesToBuy.push(item))
+console.log("This is my weekend groceries list: ", weekendGroceriesToBuy);
 
 /*
 Exercise 3:
