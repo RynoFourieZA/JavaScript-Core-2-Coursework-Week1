@@ -23,4 +23,39 @@ and if not, log a string like 'You still need to read "The Lord of the Rings" by
 
 **/
 
-let books = [];
+let books = [{
+    title: "The Lord of the Rings",
+    author: "J.R.R. Tolkien",
+    read: true,
+}, {
+    title: "The Chronicles of Narnia (Chronicles of Narnia, #1-7)",
+    author: "C.S. Lewis",
+    read: false,
+}, {
+    title: "Harry Potter and the Goblet of Fire (Harry Potter, #4)",
+    author: "J.K. Rowling",
+    read: true,
+}, {
+    title: `Alice's Adventures in Wonderland / Through the Looking-Glass`,
+    author: "Lewis Carroll",
+    read: false,
+}, {
+    title: "The Hobbit: Graphic Novel",
+    author: "Chuck Dixon",
+    read: true,
+}, {
+    title: "Harry Potter and the Deathly Hallows (Harry Potter, #7)",
+    author: "J.K. Rowling",
+    read: false,
+}, 
+
+];
+
+
+books.forEach(book => {
+    if(book.read === true) {
+        console.log(`I've already read ${book.title} by ${book.author}`);
+    }else {
+        console.log(`I still need to read ${book.title} by ${book.author}`);
+    }
+})
