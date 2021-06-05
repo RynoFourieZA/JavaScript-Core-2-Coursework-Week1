@@ -387,9 +387,9 @@ First, I want you to find all of my friends who are 35 or older.
 */
 
 let thirtyFiveOrOlder = [];
-people.forEach(item => {
-  if(item.age > 35) {
-     thirtyFiveOrOlder.push(item);
+people.forEach(personObj => {
+  if(personObj.age > 35) {
+     thirtyFiveOrOlder.push(personObj);
     }});
 /*
 3) Find the email address
@@ -399,10 +399,10 @@ Next, I want you to find all of the people who work for "POWERNET" and then stor
 */
 
 let powerNetEmails = [];
-rtyFiveOrOlder = [];
-people.forEach(item => {
-  if(item.company.includes("POWERNET")) {
-    powerNetEmails.push(item.email);
+
+people.forEach(personObj => {
+  if(personObj.company.includes("POWERNET")) {
+    powerNetEmails.push(personObj.email);
     powerNetEmails.sort();
     }});
 /*
@@ -413,11 +413,24 @@ Next, I want you to find all of my friends who are friends with Stacie Villarrea
 
 You can see who people's friends are by seeing the "friends" array in each of my friends objects.
 
-This time, I only want the full names of the people are who friends with her.
+This time, I only want the full names of the people who are friends with her.
 
 */
 
 let friendsWithStacie = [];
+// used for each to loop through array of objects
+people.forEach((personObj, index) => { 
+  // used index to count my items so I know how much friends objects there is 
+  //used the find method to get the name of 'Stacie Villarreal'
+  personObj.friends.find(friend => {
+     if(friend.name === 'Stacie Villarreal') { // used a condition statement to find my friends whom are friends with 'Stacie Villarreal' 
+    friendsWithStacie.push(`${personObj.name.first} ${personObj.name.last}`);// 
+   }
+  })
+    })
+
+friendsWithStacie.reverse();
+
 
 /*
 
@@ -432,7 +445,16 @@ This time, I only want the full names of the people who can multitask
 */
 
 let friendsWhoCanMultitask = [];
-
+people.forEach((personObj, index) => {
+console.log("This is my personObj friends: ", index, personObj.friends.map((el, index) =>  `index${index} of ${el.skills}`))
+index, personObj.friends.map((el, index) => {
+  if(el
+    .skills
+    .includes("Multi-tasking") === true ) {
+    friendsWhoCanMultitask.push(el.name);
+  };
+})
+});
 /*
 ==================================================
 ====== TESTS - DO NOT MODIFY BELOW THIS LINE =====

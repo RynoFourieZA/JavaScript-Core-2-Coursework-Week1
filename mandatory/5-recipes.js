@@ -24,4 +24,12 @@ You should write and log at least 5 recipes
 
 **/
 
-let recipes = {};
+let recipes = {
+    title: "Cheese and Macaroni",
+    serves: 10,
+    ingredients: ["cheddar chees", "macaroni", "milk", "flour", "butter", "paprika"]
+};
+
+console.log(recipes.title);
+console.log(`Serves: ${recipes.serves}`);
+Object.values(recipes.ingredients).forEach(item => item)
