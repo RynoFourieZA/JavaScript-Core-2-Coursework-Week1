@@ -2,7 +2,7 @@
 
 The Frugal Gentleman
 
-Atticus has been invited to a dinner party, and he decides to purchase a meal to share with he party 
+Atticus has been invited to a dinner party, and he decides to purchase a meal to share with the party 
 Being a very frugal gentleman (yet disliking looking like a cheapskate), he decides to use a very simple rule. 
 
 In any selection of two or more meals, he will always buy the second-cheapest. 
@@ -30,7 +30,22 @@ Should give the answer "Nothing :("
 **/
 
 function chooseMeal(mealArray) {
-  // Write your code here
+  // In any selection of two or more meals, he will always buy the second-cheapest.
+  
+  if(mealArray.length === 1) {
+   return mealArray.map(meal => meal.name).toString();
+  }else if (mealArray.length >= 2) { // If there is no choice, then he will buy the only meal given to him.
+    function sortNumbers(a, b) {
+      return a - b;
+    }
+    mealArray.forEach(meal => meal.price).sort(sortNumbers).reverse();
+    // if(mealArray.map(meal => meal.price).sort(sortNumbers).reverse() >= 3) {
+    //   return meal
+    // }
+  }else if (mealArray.length === 0) { // If there are no meals available, then he will return null
+   return  `Nothing :(` ;
+  }
+
 }
 
 /*

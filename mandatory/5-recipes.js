@@ -24,12 +24,64 @@ You should write and log at least 5 recipes
 
 **/
 
-let recipes = {
+let recipes = [
+  {
     title: "Cheese and Macaroni",
     serves: 10,
-    ingredients: ["cheddar chees", "macaroni", "milk", "flour", "butter", "paprika"]
-};
+    ingredients: [
+      "cheddar cheese",
+      "macaroni",
+      "milk",
+      "flour",
+      "butter",
+      "paprika",
+    ],
+  },
+  {
+    title: "Ham, cheese & potato pie",
+    serves: 4,
+    ingredients: [
+      "ham", 
+      "cheese", 
+      "potato", 
+      "flour", 
+      "butter", 
+      "green salad"],
+  },
+  {
+    title: "Bombay chilli cheese toastie",
+    serves: 2,
+    ingredients: [
+      "peppers",
+      "spices",
+      "potato",
+      "cheese",
+      "green chutney"],
+  },
+  {
+    title: "Giant cheese-stuffed Mexican meatballs",
+    serves: 8,
+    ingredients: [
+      "Dark chocolate",
+      "dried ancho chillies",
+      "meatball",
+      "coriander salad",
+      "cheese"],
+  },
+  {
+    title: "Italian flatbread with pear, walnut and gorgonzola",
+    serves: 4,
+    ingredients: [
+      "gorgonzola",
+      "pears",
+      "walnuts",
+      "bread",
+      "molten cheesy"],
+  },
+];
 
-console.log(recipes.title);
-console.log(`Serves: ${recipes.serves}`);
-Object.values(recipes.ingredients).forEach(item => item)
+recipes.forEach(recipe =>{ 
+  console.log(recipe.title);
+  console.log(`Serves: ${recipe.serves}`);
+  console.log(`Ingredients: \r\n${recipe.ingredients.join('\r\n')}`);
+});
