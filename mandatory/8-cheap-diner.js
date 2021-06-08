@@ -7,7 +7,7 @@ Being a very frugal gentleman (yet disliking looking like a cheapskate), he deci
 
 In any selection of two or more meals, he will always buy the second-cheapest. 
 If there is no choice, then he will buy the only meal given to him. 
-If there are no meals available, then he will return null
+If there are no meals available, then he will return null 
 
 Given an array of Meal objects, write a function that returns the name of the Meal he will buy for the party. If given an array of only one, Atticus will buy that Meal.
 
@@ -31,21 +31,16 @@ Should give the answer "Nothing :("
 
 function chooseMeal(mealArray) {
   // In any selection of two or more meals, he will always buy the second-cheapest.
-  
-  if(mealArray.length === 1) {
-   return mealArray.map(meal => meal.name).toString();
-  }else if (mealArray.length >= 2) { // If there is no choice, then he will buy the only meal given to him.
-    function sortNumbers(a, b) {
-      return a - b;
+  mealArray.sort((a, b) => a.price - b.price);
+  if (mealArray.length === 0) {
+    return `Nothing :(`;
+  } else if (mealArray.length === 1) {
+    return mealArray[0].name;
+  } else {
+    if (mealArray.length >= 2) {
+      return mealArray[1].name;
     }
-    mealArray.forEach(meal => meal.price).sort(sortNumbers).reverse();
-    // if(mealArray.map(meal => meal.price).sort(sortNumbers).reverse() >= 3) {
-    //   return meal
-    // }
-  }else if (mealArray.length === 0) { // If there are no meals available, then he will return null
-   return  `Nothing :(` ;
   }
-
 }
 
 /*
